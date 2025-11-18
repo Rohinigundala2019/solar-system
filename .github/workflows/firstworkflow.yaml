@@ -9,11 +9,10 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v5
             - name: list files
-              run: cat README.md
-            - name: welcome message
-              run: echo "This is my first github workflows"
-            - name: List files
-              run: ls -la
-            - name: read the file
-              run: ls
+              run: |
+               echo " my first gitlab workflow"
+               ls -ltrh
+               cat README.md
+            - name: generate ASCII artwork
+              run: cowsay -f dragon "run for cover, I AM DRAGON.....RAWWWW....." >> dragon.txt 
   
