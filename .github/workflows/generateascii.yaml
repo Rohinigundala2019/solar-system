@@ -11,5 +11,5 @@ jobs:
             - name: list files
               run: ls -ltrh
             - name: install cowsayh
-              run: script.sh
+              run: ./script.sh
   
