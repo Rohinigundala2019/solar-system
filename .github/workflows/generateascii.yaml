@@ -7,7 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Install cowsay program
-          run: sudo apt-get install -y
+          run: sudo apt-get install cowsay -y
         - name: run cowsay
           run: cowsay -f dragon " run for cover:,,,,.........RAWWWW" >>dragon.txt
         - name: sleep for 30 seconds
