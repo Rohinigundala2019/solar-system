@@ -10,20 +10,29 @@ jobs:
           run: sudo apt-get install cowsay -y
         - name: run cowsay
           run: cowsay -f dragon " run for cover:,,,,.........RAWWWW" >>dragon.txt
-        - name: sleep for 30 seconds
-          run: sleep 30
+        - name: upload the dragon file
+          uses: actions/upload-artifact@v3
+          with:
+           name: dragon-text-file
+           path: dragon.txt
     test_job2: 
       needs: build_job1
       runs-on: ubuntu-latest
       steps:
-        - name: sleep for 30
-          run: sleep 30
+        - name: download dragon text
+          uses: actions/download-artifact@v3
+          with:
+           name: dragon-text-file
         - name: test if file exists
           run: grep -i "dragon" dragon.txt
     deploy_job3:
       needs: test_job2
       runs-on: ubuntu-latest
       steps:
+        - name: download dragon text
+          uses: actions/download-artifact@v3
+          with:
+           name: dragon-text-file
         - name: deploy job
           run: cat dragon.txt
         - name: deploying
