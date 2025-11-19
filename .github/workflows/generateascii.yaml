@@ -11,7 +11,7 @@ jobs:
         - name: run cowsay
           run: cowsay -f dragon " run for cover:,,,,.........RAWWWW" >>dragon.txt
         - name: sleep for 30 seconds
-          run: sleep30
+          run: sleep 30
     test_job2: 
       runs-on: ubuntu:latest
       steps:
