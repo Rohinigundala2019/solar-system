@@ -23,9 +23,6 @@ jobs:
       - name: install dependencies
         run: npm install
 
-      - name: unit testing
-        run: npm test
-
   code-coverage:
     name: code coverage
     runs-on: ubuntu-latest
@@ -42,11 +39,10 @@ jobs:
         run: npm install
 
       - name: code coverage
-        run: npm run code-coverage   # <-- adjust this to match your package.json script
+        run: npm run code-coverage
 
       - name: archive test results
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/
-          retention-days: 5
